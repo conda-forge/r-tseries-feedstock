@@ -1,4 +1,4 @@
-{% set version = '0.10-40' %}
+{% set version = '0.10-46' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/tseries_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
-  sha256: 6428124cd082fed3375a9c3627008b93ecd886c18ef086dba1a0224126216bd5
+  sha256: 12940afd1d466401160e46f993ed4baf28a42cef98d3757b66ee15e916e07222
 
 build:
   merge_build_host: True  # [win]
-  number: 1001
+  number: 1000
   skip: true  # [win32]
 
   rpaths:
@@ -34,12 +34,14 @@ requirements:
     - r-base
     - r-quadprog
     - r-zoo
+    - r-quantmod >=0.4-9
 
   run:
     - r-base
     - r-quadprog
     - r-zoo
-
+    - r-quantmod >=0.4-9
+    
 test:
   commands:
     - $R -e "library('tseries')"  # [not win]
