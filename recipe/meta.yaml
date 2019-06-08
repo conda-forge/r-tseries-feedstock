@@ -1,5 +1,4 @@
-{% set version = '0.10-46' %}
-
+{% set version = '0.10-47' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,43 +7,44 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: tseries_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/tseries_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
-  sha256: 12940afd1d466401160e46f993ed4baf28a42cef98d3757b66ee15e916e07222
+    - {{ cran_mirror }}/src/contrib/tseries_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
+  sha256: 202377df56806fe611c2e12c4d9732c71b71220726e2defa7e568d2b5b62fb7b
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
-  skip: true  # [win32]
-
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('fortran') }}        # [unix]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-quadprog
+    - r-quantmod >=0.4_9
     - r-zoo
-    - r-quantmod >=0.4-9
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-quadprog
+    - r-quantmod >=0.4_9
     - r-zoo
-    - r-quantmod >=0.4-9
-    
+
 test:
   commands:
-    - $R -e "library('tseries')"  # [not win]
+    - $R -e "library('tseries')"           # [not win]
     - "\"%R%\" -e \"library('tseries')\""  # [win]
 
 about:
@@ -52,8 +52,23 @@ about:
   license: GPL-2
   summary: Time series analysis and computational finance.
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
+    - conda-forge/r
+
+# Package: tseries
+# Version: 0.10-47
+# Title: Time Series Analysis and Computational Finance
+# Authors@R: c(person("Adrian", "Trapletti", role = "aut", email = "adrian@trapletti.org"), person("Kurt", "Hornik", role = c("aut", "cre"), email = "Kurt.Hornik@R-project.org"), person("Blake", "LeBaron", role = "ctb", comment = "BDS test code"))
+# Description: Time series analysis and computational finance.
+# Depends: R (>= 2.10.0)
+# Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9)
+# License: GPL-2
+# NeedsCompilation: yes
+# Packaged: 2019-06-05 09:12:18 UTC; hornik
+# Author: Adrian Trapletti [aut], Kurt Hornik [aut, cre], Blake LeBaron [ctb] (BDS test code)
+# Maintainer: Kurt Hornik <Kurt.Hornik@R-project.org>
+# Repository: CRAN
+# Date/Publication: 2019-06-05 09:15:16 UTC
