@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -35,6 +35,7 @@ requirements:
     - r-quadprog
     - r-quantmod >=0.4_9
     - r-zoo
+    - libblas
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
@@ -52,7 +53,7 @@ about:
   license: GPL-2
   summary: Time series analysis and computational finance.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
