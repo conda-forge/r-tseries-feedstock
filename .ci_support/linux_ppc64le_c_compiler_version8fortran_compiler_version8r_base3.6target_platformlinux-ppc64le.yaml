@@ -2,6 +2,8 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '8'
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -24,3 +26,6 @@ r_base:
 - '3.6'
 target_platform:
 - linux-ppc64le
+zip_keys:
+- - c_compiler_version
+  - fortran_compiler_version
