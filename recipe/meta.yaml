@@ -21,6 +21,10 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-quadprog                 # [build_platform != target_platform]
+    - r-zoo                      # [build_platform != target_platform]
+    - r-quantmod                 # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('fortran') }}        # [not win]
