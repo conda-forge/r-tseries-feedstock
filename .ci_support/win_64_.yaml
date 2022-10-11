@@ -5,7 +5,7 @@ channel_targets:
 cran_mirror:
 - https://cran.r-project.org
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 m2w64_c_compiler:
 - m2w64-toolchain
 m2w64_fortran_compiler:
@@ -15,6 +15,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 r_base:
-- '4.0'
+- '4.1'
 target_platform:
 - win-64
