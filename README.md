@@ -1,11 +1,22 @@
+About r-tseries-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-tseries-feedstock/blob/main/LICENSE.txt)
+
 About r-tseries
-===============
+---------------
 
 Home: https://CRAN.R-project.org/package=tseries
 
 Package license: GPL-2.0-only
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-tseries-feedstock/blob/main/LICENSE.txt)
+Summary: Time series analysis and computational finance.
+About r-tseries
+---------------
+
+Home: https://CRAN.R-project.org/package=tseries
+
+Package license: GPL-2.0-only
 
 Summary: Time series analysis and computational finance.
 
