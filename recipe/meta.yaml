@@ -1,4 +1,4 @@
-{% set version = "0.10-53" %}
+{% set version = "0.10-54" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tseries_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
-  sha256: ec388ee6d022752bbebbecbf22d793d31f3734982e3f2e3ffd8dde14bffcca56
+  sha256: c3ca3263b58a22dd9f613b0be34a6f401caa9c88f0609c0b4e825f1efab4d028
 
 build:
   merge_build_host: true  # [win]
