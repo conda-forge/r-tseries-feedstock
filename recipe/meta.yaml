@@ -1,4 +1,4 @@
-{% set version = "0.10-55" %}
+{% set version = "0.10-56" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tseries_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
-  sha256: 97c7822b06533de0b208be4ae7429fc208bc13290a3e109f5f197a4964144b0e
+  sha256: a81efc7c4fcf11b14de607a8f506914fb63a9dcdcec1a11138a456234bfafae8
 
 build:
   merge_build_host: true  # [win]
@@ -26,7 +26,9 @@ requirements:
     - r-zoo                      # [build_platform != target_platform]
     - r-quantmod                 # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ posix }}filesystem        # [win]
