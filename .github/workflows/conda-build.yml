@@ -35,9 +35,19 @@ jobs:
           - CONFIG: linux_aarch64_r_base4.4
             UPLOAD_PACKAGES: True
             os: ubuntu
+            runs_on: ['ubuntu-24.04-arm']
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma9
+          - CONFIG: linux_aarch64_r_base4.5
+            UPLOAD_PACKAGES: True
+            os: ubuntu
+            runs_on: ['ubuntu-24.04-arm']
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma9
+          - CONFIG: linux_ppc64le_r_base4.4
+            UPLOAD_PACKAGES: True
+            os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: linux_aarch64_r_base4.5
+          - CONFIG: linux_ppc64le_r_base4.5
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
