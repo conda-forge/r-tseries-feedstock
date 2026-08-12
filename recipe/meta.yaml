@@ -1,15 +1,15 @@
-{% set version = "0.10-62" %}
+{% set version = "0.10-63" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-tseries
-  version: "{{ version|replace('-', '_') }}"
+  version: {{ version|replace('-', '_') }}
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/tseries_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tseries/tseries_{{ version }}.tar.gz
-  sha256: 904eae8044ac025b70a3cb7aed218842a85a2e4185bc4d3ac697b84b7e59c0d5
+  sha256: b99eba075d8dedef20cffb89a185be247f8f87ffeb65af96e2487d36a6f5cae2
 
 build:
   number: 0
