@@ -9,7 +9,7 @@ About r-tseries
 
 Home: https://CRAN.R-project.org/package=tseries
 
-Package license: GPL-2.0-only
+Package license: GPL-2.0-or-later
 
 Summary: Time series analysis and computational finance.
 
@@ -18,7 +18,7 @@ About r-tseries
 
 Home: https://CRAN.R-project.org/package=tseries
 
-Package license: GPL-2.0-only
+Package license: GPL-2.0-or-later
 
 Summary: Time series analysis and computational finance.
 
